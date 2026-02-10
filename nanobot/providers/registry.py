@@ -301,6 +301,25 @@ PROVIDERS: tuple[ProviderSpec, ...] = (
         strip_model_prefix=False,
         model_overrides=(),
     ),
+    
+    # === Customized ========================================================
+    
+    ProviderSpec(
+        name="ppio",
+        keywords=("ppio",),
+        env_key="OPENAI_API_KEY",
+        display_name="PPIO",
+        litellm_prefix="openai",              # llama3-8b-8192 → groq/llama3-8b-8192
+        skip_prefixes=(),           # avoid double-prefix
+        env_extras=(),
+        is_gateway=True,
+        is_local=False,
+        detect_by_key_prefix="",
+        detect_by_base_keyword="",
+        default_api_base="",
+        strip_model_prefix=False,
+        model_overrides=(),
+    ),
 )
 
 
